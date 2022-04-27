@@ -1,17 +1,19 @@
 package servlets;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
 import javax.servlet.*;
 
 import sql.IBookConstants;
 
-import java.io.*;
-
-public class RemoveBookAdminServlet extends GenericServlet {
+public class RemoveBookServlet extends GenericServlet {
 	public void service(ServletRequest req, ServletResponse res) throws IOException, ServletException {
 		PrintWriter pw = res.getWriter();
 		res.setContentType("text/html");
 		String bkid = req.getParameter("barcode");
+		
+		
 		try {
 			Connection con = DBConnection.getCon();
 			PreparedStatement ps = con.prepareStatement(
@@ -34,5 +36,4 @@ public class RemoveBookAdminServlet extends GenericServlet {
 			e.printStackTrace();
 		}
 	}
-
 }

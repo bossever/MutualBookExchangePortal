@@ -68,8 +68,22 @@
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
   <servlet>
+<<<<<<< HEAD
   	<servlet-name>UserProfileServlet</servlet-name>
   	<servlet-class>servlets.UserProfileServlet</servlet-class></servlet>
   <servlet-mapping>
   	<servlet-name>UserProfileServlet</servlet-name>
   	<url-pattern>/profile</url-pattern></servlet-mapping></web-app>
+=======
+  	<servlet-name>UserListServlet</servlet-name>
+  	<servlet-class>servlets.UserListServlet</servlet-class></servlet>
+  <servlet-mapping>
+  	<servlet-name>UserListServlet</servlet-name>
+  	<url-pattern>/userlist</url-pattern></servlet-mapping>
+  <servlet>
+  	<servlet-name>DeleteUserServlet</servlet-name>
+  	<servlet-class>servlets.DeleteUserServlet</servlet-class></servlet>
+  <servlet-mapping>
+  	<servlet-name>DeleteUserServlet</servlet-name>
+  	<url-pattern>/delete</url-pattern></servlet-mapping></web-app>
+>>>>>>> 3168b38e45fbd5011feae4c0f0e196b3fb3ed980

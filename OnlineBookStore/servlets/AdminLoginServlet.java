@@ -5,6 +5,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 
 import constants.IOnlineBookStoreConstants;
+import sql.IBookConstants;
 import sql.IUserContants;
 
 import java.io.*;
@@ -21,6 +22,7 @@ public class AdminLoginServlet extends GenericServlet {
 			PreparedStatement ps = con.prepareStatement("SELECT * FROM " + IUserContants.TABLE_USERS + " WHERE  "
 					+ IUserContants.COLUMN_USERNAME + "=? AND " + IUserContants.COLUMN_PASSWORD + "=? AND "
 					+ IUserContants.COLUMN_USERTYPE + "=1");
+			
 			ps.setString(1, uName);
 			ps.setString(2, pWord);
 			ResultSet rs = ps.executeQuery();
@@ -31,15 +33,16 @@ public class AdminLoginServlet extends GenericServlet {
 				
 				rd.include(req, res);
 				pw.println("<div class=\"tab\">Admin login Successful</div>");
-				pw.println("<div class=\"tab\"><br/><a href=\"AddBook.html\">ADD BOOKS</a><br/></div>");
-				pw.println("<div class=\"tab\"><br/><a href=\"RemoveBooks.html\">REMOVE BOOKS</a><br/></div>");
-				pw.println("<div class=\"tab\"><br/><a href=\"viewbook\">VIEW BOOKS</a></div>");
+				pw.println("<div class=\"tab\"><a href=\"AddBook.html\">ADD BOOKS</a></div>");
+				pw.println("<div class=\"tab\"><a href=\"RemoveBooks.html\">REMOVE BOOKS</a></div>");
+				pw.println("<div class=\"tab\"><a href=\"userlist\">USER LIST</a></div>");
+				pw.println("<div class=\"tab\"><a href=\"viewbook\">VIEW BOOKS</a></div>");
 			} else {
-
-				RequestDispatcher rd = req.getRequestDispatcher("AdminLogin.html");
+                RequestDispatcher rd = req.getRequestDispatcher("AdminLogin.html");
 				rd.include(req, res);
 				pw.println("<div class=\"tab\">Incorrect UserName or PassWord</div>");
 			}
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
