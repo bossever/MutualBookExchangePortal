@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Profile Page</title>
+
+<style>
+
+body {
+	display: flex;
+	flex-direction: column;
+	text-align:center;
+}
+
+.container-title {
+	order: 0;
+}
+
+.profile-button, .profile-info {
+	order: 1;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+button {
+	margin-bottom: 15px;
+	height: 25px;
+	width: 250px;
+}
+
+</style>
+</head>
+<body>
+	<!-- <div class="container-profile"> -->
+		<!-- <div class="container-title">
+			<h1>User Profile : </h1>
+		</div> -->
+		
+		<div class="profile-info">
+			<h2>My Wallet</h2>
+			<div id="wallet-money">
+				<p>Current Balance : </p>
+			</div>
+		</div>
+		
+		<div class="profile-button" id="my-published-books">
+			<button><a href="#">My Published Books</a></button></br>
+		</div>
+		
+		<div class="profile-button" id="remove-published-books">
+			<button><a href="#">Remove Published Books</a></button></br>
+		</div>
+		
+		<div class="profile-button" id="view-books">
+			<button><a href="#">View Books</a></button></br>
+		</div>
+		
+		<div class="profile-button" id="lend-requests">
+			<button><a href="#">Lend Requests</a></button></br>
+		</div>
+		
+		<div class="profile-button" id="delete-profile">
+			<button><a href="#">Delete Profile</a></button></br>
+		</div>
+		
+		<div class="profile-button" id="add-money">
+			<button><a href="#">Add Money to Wallet</a></button></br>
+		</div>
+		
+	<!--  </div> -->
+</body>
+</html>

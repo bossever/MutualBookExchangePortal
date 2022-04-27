@@ -67,4 +67,9 @@
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
-</web-app>
+  <servlet>
+  	<servlet-name>UserProfileServlet</servlet-name>
+  	<servlet-class>servlets.UserProfileServlet</servlet-class></servlet>
+  <servlet-mapping>
+  	<servlet-name>UserProfileServlet</servlet-name>
+  	<url-pattern>/profile</url-pattern></servlet-mapping></web-app>
