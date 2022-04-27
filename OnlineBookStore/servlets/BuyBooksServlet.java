@@ -53,7 +53,7 @@ public class BuyBooksServlet extends GenericServlet{
 				pw.println("<td><input type=\"text\" name="+q+" value=\"0\" text-align=\"center\"></td></tr>");
 				
 			}
-			pw.println("</table>\r\n" + "<input type=\"submit\" value=\" PAY NOW \">"+"<br/>"+
+			pw.println("</table>\r\n" + "<input type=\"submit\" value=\" PAY NOW  \">"+"<br/>"+
 					"	</form>\r\n" + 
 					"	</div>");
 			//pw.println("<div class=\"tab\"><a href=\"AddBook.html\">Add More Books</a></div>");
