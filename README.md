@@ -1,4 +1,4 @@
-## An online portl to exchange books
+## An online portal to exchange books
 
 *Created by :-*
     
