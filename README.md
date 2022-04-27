@@ -1,4 +1,4 @@
-An online portal to echange books.
+An online portal to exchange books.
 
 Created by :-
 Ayushman Sachan 
