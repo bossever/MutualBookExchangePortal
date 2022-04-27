@@ -35,4 +35,5 @@ public class RemoveBookUserServlet extends GenericServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
 }
