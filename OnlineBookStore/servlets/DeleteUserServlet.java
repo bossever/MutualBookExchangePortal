@@ -16,7 +16,6 @@ public class DeleteUserServlet extends GenericServlet{
 		res.setContentType(IOnlineBookStoreConstants.CONTENT_TYPE_TEXT_HTML);
 		
 		String uid = req.getParameter(IUserContants.COLUMN_USERNAME);
-		System.out.println(uid);
 		try {
 			Connection con = DBConnection.getCon();
 			PreparedStatement ps = con.prepareStatement("DELETE FROM " + IUserContants.TABLE_USERS + " WHERE "

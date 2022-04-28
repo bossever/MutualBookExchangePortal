@@ -13,9 +13,9 @@ public class UserRegisterServlet extends GenericServlet {
 		PrintWriter pw = res.getWriter();
 		res.setContentType(IOnlineBookStoreConstants.CONTENT_TYPE_TEXT_HTML);
 
-		String uName = req.getParameter(IUserContants.COLUMN_USERNAME);
+		String uId = req.getParameter(IUserContants.COLUMN_USERNAME);
 		String pWord = req.getParameter(IUserContants.COLUMN_PASSWORD);
-		String fName = req.getParameter(IUserContants.COLUMN_FIRSTNAME);
+		String uName = req.getParameter(IUserContants.COLUMN_FIRSTNAME);
 		String lName = req.getParameter(IUserContants.COLUMN_LASTNAME);
 		String addr = req.getParameter(IUserContants.COLUMN_ADDRESS);
 		String phNo = req.getParameter(IUserContants.COLUMN_PHONE);
@@ -24,24 +24,30 @@ public class UserRegisterServlet extends GenericServlet {
 			Connection con = DBConnection.getCon();
 			PreparedStatement ps = con
 					.prepareStatement("insert into " + IUserContants.TABLE_USERS + "  values(?,?,?,?,?,?,?,?)");
-			ps.setString(1, uName);
+			ps.setString(1, uId);
 			ps.setString(2, pWord);
-			ps.setString(3, fName);
+			ps.setString(3, uName);
 			ps.setString(4, lName);
 			ps.setString(5, addr);
 			ps.setString(6, phNo);
 			ps.setString(7, mailId);
 			ps.setInt(8, 2);
-			int k = ps.executeUpdate();
-			if (k == 1) {
-				RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
-				rd.include(req, res);
-				pw.println("<h3 class='tab'>User Registered Successfully</h3>");
-			} else {
-				RequestDispatcher rd = req.getRequestDispatcher("userreg");
-				rd.include(req, res);
-				pw.println("Sorry for interruption! Register again");
+			try {
+				int k = ps.executeUpdate();
+				if (k == 1) {
+					RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
+					rd.include(req, res);
+					pw.println("<h3 class='tab'>User Registered Successfully</h3>");
+				} else {
+					RequestDispatcher rd = req.getRequestDispatcher("userreg");
+					rd.include(req, res);
+					pw.println("Sorry for interruption! Register again");
+				}
+			}catch(SQLIntegrityConstraintViolationException e) {
+				pw.println("<h2>Duplicate Entry</h2>");
 			}
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
